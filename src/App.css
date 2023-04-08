@@ -1,11 +1,14 @@
 .input {
-    position: relative;
-    top: 200px;
+    position: absolute;
+    
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     z-index: 2;
+    margin: 0 auto;
+    height: 100px;
+   
 }
 .App {
     background: url("./Components/images/Background.png");
@@ -13,5 +16,6 @@
     background-size: 200vh;
     height: 100vh;
     transition: 1s ease-in;
+    
 }
 

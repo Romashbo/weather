@@ -7,7 +7,7 @@ import { formatCurrentWeather } from "./API/currentWeather";
 
 
 function App() {
-  const [search, setSearch] = useState("Yaroslavl")
+  const [search, setSearch] = useState("")
   const [weather, setWeather] = useState("")
   const [weatherWeek, setWeatherWeek] = useState("")
   
@@ -15,6 +15,7 @@ function App() {
     const response = await WeatherServer.getAll(search)
     // setWeather(formatCurrentWeather(response.data))
     setWeather(response.data)
+    setSearch("")
     console.log("weth" ,response.data);
 
   }
