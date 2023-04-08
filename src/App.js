@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import TempNow from "./Components/TempNow/TempNow";
+import "./app.css"
+import MyInput from "./Components/UI/Input/MyInput";
+import WeatherServer from "./API/WeatherServer";
+import { formatCurrentWeather } from "./API/currentWeather";
+
 
 function App() {
+  const [search, setSearch] = useState("Yaroslavl")
+  const [weather, setWeather] = useState("")
+  const [weatherWeek, setWeatherWeek] = useState("")
+  
+  const getWeth = async () => {
+    const response = await WeatherServer.getAll(search)
+    // setWeather(formatCurrentWeather(response.data))
+    setWeather(response.data)
+    console.log("weth" ,response.data);
+
+  }
+
+
+const handleKeyPress = async (evt) => {
+  if (evt.key === "Enter") {
+    getWeth()
+
+
+  
+  }
+} 
+useEffect(() => {
+  getWeth()
+
+},[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+ <div className="App">
+<div className="input">
+     <MyInput onKeyPress={handleKeyPress} value={search} onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Enter your country" />
+   </div>
+   
+   {weather && (
+     <div>
+      <TempNow weather={weather} />
+     </div>
+   )}
+ </div>
+
+  
   );
 }
 

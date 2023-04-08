@@ -1,0 +1,34 @@
+.center {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  height: 90vh;
+
+}
+
+.tempNowAllPage {
+    
+    position: relative;
+    width: 1224px;
+    display: flex;
+    gap: 50px;
+    
+}
+
+.tempNow {
+    
+    position: relative;
+    background: url("../images/Temperature\ Now.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10%;
+    width: 480px;
+    height: 480px;
+}
+
+ul, li {
+    text-decoration: none;
+    list-style: none;
+}

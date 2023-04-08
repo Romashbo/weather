@@ -1,0 +1,21 @@
+.modal {
+    font-family: 'Times New Roman', Times, serif;
+    top: -220px;
+    border-radius: 20px;
+    min-width: 350px;
+    height: 200px;
+    color: white
+}
+
+.modal-content {
+    padding: 10px;
+   
+}
+.sunrise {
+    display: flex;
+    gap: 10px;
+}
+.sunset {
+    display: flex;
+    gap: 10px;
+}
